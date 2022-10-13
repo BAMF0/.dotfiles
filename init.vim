@@ -19,7 +19,6 @@ call plug#begin()
 	Plug 'preservim/nerdtree'
 	Plug 'mhinz/vim-startify'
 	Plug 'morhetz/gruvbox'
-	Plug 'jiangmiao/auto-pairs'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'cespare/vim-toml', { 'branch': 'main' }
 	Plug 'vim-airline/vim-airline'
@@ -111,6 +110,9 @@ function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Use enter for autocomplete
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
