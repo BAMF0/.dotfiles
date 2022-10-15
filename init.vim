@@ -24,6 +24,10 @@ call plug#begin()
 	Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 	Plug 'tpope/vim-surround'
+	Plug 'airblade/vim-gitgutter'
+	Plug 'kyazdani42/nvim-web-devicons' 
+	Plug 'lewis6991/impatient.nvim'
+	Plug 'rcarriga/nvim-notify'
 call plug#end()
 
 " Plugin settings
@@ -47,6 +51,7 @@ set signcolumn=yes
 
 " Theme
 colorscheme gruvbox
+set termguicolors
 
 syntax on " syntax highlighting
 
@@ -77,6 +82,10 @@ function! TermToggle(height)
 endfunction
 
 " Keymaps
+
+"" General
+" Unload current buffer 
+nnoremap <C-q> :bd<CR>
 
 "" NerdTree
 nnoremap <leader>n :NERDTreeFocus<CR>
