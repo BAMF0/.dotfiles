@@ -98,7 +98,7 @@ filetype plugin indent on
 
 "" General
 " Unload current buffer 
-nnoremap <C-q> :bd<CR>
+nnoremap <Leader>q :bd<CR>
 
 " exit insert mode
 inoremap jk <ESC>
