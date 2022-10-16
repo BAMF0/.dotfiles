@@ -1,10 +1,13 @@
 " General settings
+let mapleader = "," " map leader to comma
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
 
 set autoindent " indent nl the same amount as the line typed
+
+set hidden " hide buffer instead of closing
 
 set number relativenumber " turn hybrid line numbers on
 set nu rnu
@@ -16,18 +19,26 @@ set shiftwidth=4 			  " indent corresponds to single tab
 " Plugins using vim-plug
 
 call plug#begin()
-	Plug 'preservim/nerdtree'
+	Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+			\ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' 
 	Plug 'mhinz/vim-startify'
+
 	Plug 'morhetz/gruvbox'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'cespare/vim-toml', { 'branch': 'main' }
+
 	Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+
 	Plug 'tpope/vim-surround'
 	Plug 'airblade/vim-gitgutter'
+	Plug 'ryanoasis/vim-devicons'
 	Plug 'kyazdani42/nvim-web-devicons' 
 	Plug 'lewis6991/impatient.nvim'
 	Plug 'rcarriga/nvim-notify'
+
+	Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 call plug#end()
 
 " Plugin settings
@@ -46,8 +57,27 @@ let g:coc_disable_startup_warning = 1
 set signcolumn=yes
 
 "" NerdTree 
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+
 " Exit Vim if NERDTree is the only window remaining in the only tab.
-" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+"Exit Vim if NERDTree is the only window remaining
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+"autocmd BufEnter * lcd %:p:h
+
+"" toggleterm
+lua << EOF
+require("toggleterm").setup{
+	open_mapping = [[<Leader>t]],
+	insert_mappings = false,
+	terminal_mappings = true,
+	shade_terminals = false,
+}
+EOF
 
 " Theme
 colorscheme gruvbox
@@ -57,29 +87,21 @@ syntax on " syntax highlighting
 
 " Functions
 
-"" Terminal
-" Terminal Function
-let g:term_buf = 0
-let g:term_win = 0
-function! TermToggle(height)
-    if win_gotoid(g:term_win)
-        hide
-    else
-        botright new
-        exec "resize " . a:height
-        try
-            exec "buffer " . g:term_buf
-        catch
-            call termopen($SHELL, {"detach": 0})
-            let g:term_buf = bufnr("")
-            set nonumber
-            set norelativenumber
-            set signcolumn=no
-        endtry
-        startinsert!
-        let g:term_win = win_getid()
-    endif
-endfunction
+"" toggleterm
+lua << EOF
+function _G.set_terminal_keymaps()
+  local opts = {buffer = 0}
+  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', '<C-w>h', [[<Cmd>wincmd h<CR>]], opts)
+  vim.keymap.set('t', '<C-w>j', [[<Cmd>wincmd j<CR>]], opts)
+  vim.keymap.set('t', '<C-w>k', [[<Cmd>wincmd k<CR>]], opts)
+  vim.keymap.set('t', '<C-w>l', [[<Cmd>wincmd l<CR>]], opts)
+end
+
+-- if you only want these mappings for toggle term use term://*toggleterm#* instead
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+EOF
 
 " Keymaps
 
@@ -87,21 +109,12 @@ endfunction
 " Unload current buffer 
 nnoremap <C-q> :bd<CR>
 
+" exit insert mode
+inoremap jk <ESC>
+
 "" NerdTree
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
-"" Terminal
-" Toggle terminal on/off (neovim)
-nnoremap <A-t> :call TermToggle(12)<CR>
-inoremap <A-t> <Esc>:call TermToggle(12)<CR>
-tnoremap <A-t> <C-\><C-n>:call TermToggle(12)<CR>
-
-" Terminal go back to normal mode
-tnoremap <Esc> <C-\><C-n>
-tnoremap :q! <C-\><C-n>:q!<CR>
+nnoremap <Leader>f :NERDTreeToggle<Enter>
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 
 "" coc
 " Use tab for trigger completion with characters ahead and navigate.
@@ -141,3 +154,6 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Run the Code Lens action on the current line.
 nmap <leader>cl  <Plug>(coc-codelens-action)
+
+"" toggleterm
+"nnoremap <leader>t :ToggleTerm<Enter> 
