@@ -17,6 +17,7 @@ set softtabstop=0 noexpandtab " see multiple spaces as tabstops so <BS> does the
 set shiftwidth=4 			  " indent corresponds to single tab
 
 " Plugins using vim-plug
+" NOTE: toggleterm conflicts with NeoVim < v0.7
 
 call plug#begin()
 	Plug 'preservim/nerdtree' |
@@ -32,6 +33,8 @@ call plug#begin()
 
 	Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+
+	Plug 'rust-lang/rust.vim'
 
 	Plug 'tpope/vim-surround'
 	Plug 'airblade/vim-gitgutter'
@@ -58,21 +61,6 @@ let g:coc_disable_startup_warning = 1
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
-"" ctags
- let g:tagbar_type_rust = {
-    \ 'ctagstype' : 'rust',
-    \ 'kinds' : [
-        \'T:types,type definitions',
-        \'f:functions,function definitions',
-        \'g:enum,enumeration names',
-        \'s:structure names',
-        \'m:modules,module names',
-        \'c:consts,static constants',
-        \'t:traits',
-        \'i:impls,trait implementations',
-    \]
-    \}
-
 "" NerdTree 
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
@@ -86,8 +74,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 "autocmd BufEnter * lcd %:p:h
 
-"" tagbar
-nmap <F8> :TagbarToggle<CR>
 
 "" toggleterm
 lua << EOF
@@ -104,6 +90,7 @@ colorscheme gruvbox
 set termguicolors
 
 syntax on " syntax highlighting
+filetype plugin indent on
 
 " Functions
 
@@ -159,5 +146,6 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 " Run the Code Lens action on the current line.
 nmap <leader>cl  <Plug>(coc-codelens-action)
 
-"" toggleterm
-"nnoremap <leader>t :ToggleTerm<Enter> 
+"" tagbar
+nmap <leader>b :TagbarToggle<CR>
+
