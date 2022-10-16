@@ -24,6 +24,8 @@ call plug#begin()
 			\ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' 
 	Plug 'mhinz/vim-startify'
 
+	Plug 'preservim/tagbar' |
+
 	Plug 'morhetz/gruvbox'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'cespare/vim-toml', { 'branch': 'main' }
@@ -56,6 +58,21 @@ let g:coc_disable_startup_warning = 1
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
+"" ctags
+ let g:tagbar_type_rust = {
+    \ 'ctagstype' : 'rust',
+    \ 'kinds' : [
+        \'T:types,type definitions',
+        \'f:functions,function definitions',
+        \'g:enum,enumeration names',
+        \'s:structure names',
+        \'m:modules,module names',
+        \'c:consts,static constants',
+        \'t:traits',
+        \'i:impls,trait implementations',
+    \]
+    \}
+
 "" NerdTree 
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
@@ -68,6 +85,9 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 "autocmd BufEnter * lcd %:p:h
+
+"" tagbar
+nmap <F8> :TagbarToggle<CR>
 
 "" toggleterm
 lua << EOF
