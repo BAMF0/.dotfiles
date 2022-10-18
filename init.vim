@@ -28,6 +28,7 @@ call plug#begin()
 	Plug 'preservim/tagbar' |
 
 	Plug 'morhetz/gruvbox'
+	Plug 'sainnhe/gruvbox-material'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'cespare/vim-toml', { 'branch': 'main' }
 
@@ -51,7 +52,7 @@ call plug#end()
 "" airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_theme='gruvbox'
+let g:airline_theme='gruvbox_material'
 
 "" coc
 " Disable startup warning
@@ -86,7 +87,7 @@ require("toggleterm").setup{
 EOF
 
 " Theme
-colorscheme gruvbox
+colorscheme gruvbox-material
 set termguicolors
 
 syntax on " syntax highlighting
