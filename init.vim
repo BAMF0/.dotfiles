@@ -100,6 +100,7 @@ filetype plugin indent on
 " Keymaps
 
 "" General
+
 " exit insert mode
 inoremap jk <ESC>
 inoremap § <ESC>
