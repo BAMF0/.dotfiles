@@ -16,6 +16,8 @@ set tabstop=4				  " the number of columns occupied by a tab
 set softtabstop=0 noexpandtab " see multiple spaces as tabstops so <BS> does the right thing
 set shiftwidth=4 			  " indent corresponds to single tab
 
+set colorcolumn=80 " set 80-column inditcation
+
 " Plugins using vim-plug
 " NOTE: toggleterm conflicts with NeoVim < v0.7
 
@@ -98,11 +100,17 @@ filetype plugin indent on
 " Keymaps
 
 "" General
-" Unload current buffer 
-nnoremap <Leader>q :bd<CR>
-
 " exit insert mode
 inoremap jk <ESC>
+inoremap § <ESC>
+
+" exit Vim with ESC
+nnoremap <ESC> :q<CR>
+
+" write buffer
+nnoremap <leader>s :w<CR>
+" Unload current buffer 
+nnoremap <Leader>q :bd<CR>
 
 "" NerdTree
 nnoremap <Leader>f :NERDTreeToggle<Enter>
