@@ -1,0 +1,9 @@
+{
+  "coc.source.vimtex.filetypes": [
+    "tex",
+    "latex"
+  ],
+  "snippets.textmateSnippetsRoots": [
+	  "/home/simjohn/Documents/dev/snippets/textmate"
+  ]
+}

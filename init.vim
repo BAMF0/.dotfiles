@@ -37,6 +37,8 @@ call plug#begin()
 	Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
+	Plug 'lervag/vimtex'
+
 	Plug 'rust-lang/rust.vim'
 
 	Plug 'tpope/vim-surround'
@@ -88,8 +90,27 @@ require("toggleterm").setup{
 }
 EOF
 
+"" vimtex
+" Viewer options: One may configure the viewer either by specifying a built-in
+" viewer method:
+let g:vimtex_view_method = 'zathura'
+
+"" change build directory
+"let g:vimtex_compiler_latexmk = {
+"	\ 'build_dir' : './target/',
+"	\}
+
+" Use xelatex to compile
+let g:vimtex_compiler_latexmk_engines = {
+    \ '_'                : '-xelatex',
+    \}
+
+" map local leader to same as mapleader
+let maplocalleader = ","
+
 " Theme
 colorscheme gruvbox-material
+autocmd BufEnter *.tex set background=light
 set termguicolors
 
 syntax on " syntax highlighting
