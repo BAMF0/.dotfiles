@@ -180,3 +180,5 @@ nmap <leader>cl  <Plug>(coc-codelens-action)
 "" tagbar
 nmap <leader>b :TagbarToggle<CR>
 
+"" vimtex
+nmap <leader>wc :VimtexCountWords<CR> 
