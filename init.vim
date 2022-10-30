@@ -1,6 +1,8 @@
 " General settings
 let mapleader = "," " map leader to comma
 
+set guicursor=i:block " set insert cursor to block
+
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
