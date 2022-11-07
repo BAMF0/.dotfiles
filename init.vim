@@ -24,9 +24,6 @@ set colorcolumn=80 " set 80-column inditcation
 " NOTE: toggleterm conflicts with NeoVim < v0.7
 
 call plug#begin()
-	Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-			\ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' 
 	Plug 'mhinz/vim-startify'
 
 	Plug 'preservim/tagbar' |
@@ -52,6 +49,10 @@ call plug#begin()
 
 	Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
 
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+	Plug 'nvim-telescope/telescope-file-browser.nvim'
+
 call plug#end()
 
 " Plugin settings
@@ -69,18 +70,23 @@ let g:coc_disable_startup_warning = 1
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
-"" NerdTree 
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDTreeQuitOnOpen = 1
-let NERDTreeAutoDeleteBuffer = 1
+"" Telescope
+lua << EOF
+require('telescope').setup{
+  -- ...
+}
+-- To get telescope-file-browser loaded and working with telescope,
+-- you need to call load_extension, somewhere after setup function:
+require("telescope").load_extension "file_browser"
 
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-"Exit Vim if NERDTree is the only window remaining
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+vim.api.nvim_set_keymap(
+  "n",
+  "<space>fb",
+  ":Telescope file_browser<CR>",
+  { noremap = true }
+)
+EOF
 
-"autocmd BufEnter * lcd %:p:h
 
 
 "" toggleterm
@@ -137,10 +143,6 @@ nnoremap <leader>s :w<CR>
 " Unload current buffer 
 nnoremap <Leader>q :bd<CR>
 
-"" NerdTree
-nnoremap <Leader>f :NERDTreeToggle<Enter>
-nnoremap <silent> <Leader>v :NERDTreeFind<CR>
-
 "" coc
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: There's always complete item selected by default, you may want to enable
@@ -182,6 +184,13 @@ nmap <leader>cl  <Plug>(coc-codelens-action)
 
 "" tagbar
 nmap <leader>b :TagbarToggle<CR>
+
+"" Telescope
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 "" vimtex
 nmap <leader>wc :VimtexCountWords<CR> 
