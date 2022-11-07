@@ -8,15 +8,16 @@ set guicursor=i:block " set insert cursor to block
 set updatetime=300
 
 set autoindent " indent nl the same amount as the line typed
+set smartindent " do smart autoindenting when starting a new line
 
 set hidden " hide buffer instead of closing
 
 set number relativenumber " turn hybrid line numbers on
 set nu rnu
 
-set tabstop=4				  " the number of columns occupied by a tab
+set tabstop=3				  " the number of columns occupied by a tab
 set softtabstop=0 noexpandtab " see multiple spaces as tabstops so <BS> does the right thing
-set shiftwidth=4 			  " indent corresponds to single tab
+set shiftwidth=3 			  " indent corresponds to single tab
 
 set colorcolumn=80 " set 80-column inditcation
 
@@ -53,13 +54,20 @@ call plug#begin()
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 	Plug 'nvim-telescope/telescope-file-browser.nvim'
 
+	Plug 'folke/zen-mode.nvim'
+	Plug 'folke/twilight.nvim'
+
+
 call plug#end()
 
 " Plugin settings
 
 "" airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_theme='gruvbox_material'
 
 "" coc
@@ -99,6 +107,15 @@ require("toggleterm").setup{
 }
 EOF
 
+"" twilight
+lua << EOF
+  require("twilight").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
+
 "" vimtex
 " Viewer options: One may configure the viewer either by specifying a built-in
 " viewer method:
@@ -116,6 +133,15 @@ let g:vimtex_compiler_latexmk_engines = {
 
 " map local leader to same as mapleader
 let maplocalleader = ","
+
+"" zen mode
+lua << EOF
+  require("zen-mode").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
 
 " Theme
 colorscheme gruvbox-material
@@ -163,6 +189,9 @@ endfunction
 " Use enter for autocomplete
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
+" land cursor between brackets
+ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -182,6 +211,13 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 " Run the Code Lens action on the current line.
 nmap <leader>cl  <Plug>(coc-codelens-action)
 
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Restart Coc
+nmap <leader>r :CocRestart<CR>
+
 "" tagbar
 nmap <leader>b :TagbarToggle<CR>
 
@@ -194,3 +230,6 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 "" vimtex
 nmap <leader>wc :VimtexCountWords<CR> 
+
+"" zenmode
+nnoremap <leader>z :ZenMode<CR>
