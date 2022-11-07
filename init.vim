@@ -47,7 +47,7 @@ call plug#begin()
 	Plug 'lewis6991/impatient.nvim'
 	Plug 'rcarriga/nvim-notify'
 
-	Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
+	Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
