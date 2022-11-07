@@ -50,7 +50,8 @@ call plug#begin()
 	Plug 'lewis6991/impatient.nvim'
 	Plug 'rcarriga/nvim-notify'
 
-	Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+	Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
+
 call plug#end()
 
 " Plugin settings
