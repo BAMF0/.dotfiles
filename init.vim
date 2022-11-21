@@ -84,6 +84,7 @@ let g:airline_symbols.linenr = ' :'
 let g:airline_symbols.maxlinenr = '☰ '
 let g:airline_symbols.dirty='⚡'
 
+let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_theme='catppuccin'
 
@@ -164,7 +165,7 @@ EOF
 colorscheme catppuccin-macchiato
 autocmd BufEnter *.tex set background=light
 set termguicolors
-hi normal guibg=000000
+hi Normal guibg=NONE ctermbg=NONE
 
 syntax on " syntax highlighting
 filetype plugin indent on
