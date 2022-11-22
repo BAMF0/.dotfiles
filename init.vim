@@ -15,6 +15,10 @@ set hidden " hide buffer instead of closing
 set number relativenumber " turn hybrid line numbers on
 set nu rnu
 
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+set cursorline! cursorcolumn!
+
 set tabstop=3				  " the number of columns occupied by a tab
 set softtabstop=0 noexpandtab " see multiple spaces as tabstops so <BS> does the right thing
 set shiftwidth=3 			  " indent corresponds to single tab
