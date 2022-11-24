@@ -31,8 +31,8 @@ set colorcolumn=80 " set 80-column inditcation
 call plug#begin()
 	Plug 'mhinz/vim-startify'
 
-	Plug 'preservim/tagbar' |
-
+	Plug 'preservim/tagbar'
+	Plug 'Yggdroot/indentLine'
 	Plug 'morhetz/gruvbox'
 	Plug 'sainnhe/gruvbox-material'
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
@@ -77,16 +77,16 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.colnr = ' ℅:'
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ' :'
-let g:airline_symbols.maxlinenr = '☰ '
-let g:airline_symbols.dirty='⚡'
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
+" let g:airline_symbols.branch = ''
+" let g:airline_symbols.colnr = ' ℅:'
+" let g:airline_symbols.readonly = ''
+" let g:airline_symbols.linenr = ' :'
+" let g:airline_symbols.maxlinenr = '☰ '
+" let g:airline_symbols.dirty='⚡'
 
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
@@ -99,6 +99,11 @@ let g:coc_disable_startup_warning = 1
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
+
+" indentLine
+let g:indentLine_setColors = 0
+
+let g:indentLine_char = '│'
 
 "" Telescope
 lua << EOF
@@ -167,7 +172,7 @@ EOF
 
 " Theme
 colorscheme catppuccin-macchiato
-autocmd BufEnter *.tex set background=light
+"autocmd BufEnter *.tex colorscheme catppuccin-latte 
 set termguicolors
 hi Normal guibg=NONE ctermbg=NONE
 
