@@ -32,7 +32,6 @@ call plug#begin()
 	Plug 'mhinz/vim-startify'
 
 	Plug 'preservim/tagbar'
-	Plug 'Yggdroot/indentLine'
 	Plug 'morhetz/gruvbox'
 	Plug 'sainnhe/gruvbox-material'
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
@@ -41,7 +40,7 @@ call plug#begin()
 	Plug 'cespare/vim-toml', { 'branch': 'main' }
 
 	Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+   Plug 'vim-airline/vim-airline-themes'
 
 	Plug 'lervag/vimtex'
 
@@ -63,6 +62,7 @@ call plug#begin()
 	Plug 'folke/zen-mode.nvim'
 	Plug 'folke/twilight.nvim'
 
+	Plug 'jupyter-vim/jupyter-vim'
 
 call plug#end()
 
@@ -73,37 +73,33 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" let g:airline_left_sep = ''
-" let g:airline_left_alt_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_right_alt_sep = ''
-" let g:airline_symbols.branch = ''
-" let g:airline_symbols.colnr = ' ℅:'
-" let g:airline_symbols.readonly = ''
-" let g:airline_symbols.linenr = ' :'
-" let g:airline_symbols.maxlinenr = '☰ '
-" let g:airline_symbols.dirty='⚡'
-
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline_theme='catppuccin'
 
 "" coc
 " Disable startup warning
 let g:coc_disable_startup_warning = 1
 
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
+
+"" gitgutter
+let g:gitgutter_sign_added = '╎'
+let g:gitgutter_sign_removed = '╍'
+let g:gitgutter_sign_modified = '╎'
+
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
-" indentLine
-let g:indentLine_setColors = 0
-
-let g:indentLine_char = '│'
+"" Magma
+nnoremap <silent><expr> <LocalLeader>r  :MagmaEvaluateOperator<CR>
+nnoremap <silent>       <LocalLeader>rr :MagmaEvaluateLine<CR>
+xnoremap <silent>       <LocalLeader>r  :<C-u>MagmaEvaluateVisual<CR>
+nnoremap <silent>       <LocalLeader>rc :MagmaReevaluateCell<CR>
+nnoremap <silent>       <LocalLeader>rd :MagmaDelete<CR>
+nnoremap <silent>       <LocalLeader>ro :MagmaShowOutput<CR>
+let g:magma_automatically_open_output = v:false
+let g:magma_image_provider = "kitty"
 
 "" Telescope
 lua << EOF
@@ -171,8 +167,8 @@ lua << EOF
 EOF
 
 " Theme
-colorscheme catppuccin-macchiato
-"autocmd BufEnter *.tex colorscheme catppuccin-latte 
+autocmd BufEnter *.tex set background=light
+colorscheme gruvbox-material
 set termguicolors
 hi Normal guibg=NONE ctermbg=NONE
 
@@ -246,8 +242,24 @@ nmap <leader>cl  <Plug>(coc-codelens-action)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-" Restart Coc
-nmap <leader>r :CocRestart<CR>
+"" jupyter-vim
+if &ft=='py'
+   " Run current file
+	nnoremap <buffer> <silent> <localleader>R :JupyterRunFile<CR>
+	nnoremap <buffer> <silent> <localleader>I :PythonImportThisFile<CR>
+
+	" Change to directory of current file
+	nnoremap <buffer> <silent> <localleader>d :JupyterCd %:p:h<CR>
+
+	" Send a selection of lines
+	nnoremap <buffer> <silent> <localleader>X :JupyterSendCell<CR>
+	nnoremap <buffer> <silent> <localleader>E :JupyterSendRange<CR>
+	nmap     <buffer> <silent> <localleader>e <Plug>JupyterRunTextObj
+	vmap     <buffer> <silent> <localleader>e <Plug>JupyterRunVisual
+
+	" Debugging maps
+	nnoremap <buffer> <silent> <localleader>b :PythonSetBreak<CR>
+endif
 
 "" tagbar
 nmap <leader>b :TagbarToggle<CR>
