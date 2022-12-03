@@ -168,7 +168,7 @@ EOF
 
 " Theme
 autocmd BufEnter *.tex set background=light
-colorscheme gruvbox-material
+colorscheme catppuccin-mocha
 set termguicolors
 hi Normal guibg=NONE ctermbg=NONE
 
