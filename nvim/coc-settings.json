@@ -1,0 +1,11 @@
+{
+  "coc.source.vimtex.filetypes": [
+    "tex",
+    "latex"
+  ],
+  "snippets.textmateSnippetsRoots": [
+	  "/home/simjohn/Documents/dev/snippets/textmate"
+  ],
+  "coc.preferences.formatOnSaveFiletypes": ["rust"],
+  "python.venvPath": ["/home/simjohn/dev/python/venvs"]
+}
