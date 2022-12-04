@@ -23,8 +23,6 @@ set tabstop=3				  " the number of columns occupied by a tab
 set softtabstop=0 noexpandtab " see multiple spaces as tabstops so <BS> does the right thing
 set shiftwidth=3 			  " indent corresponds to single tab
 
-set colorcolumn=80 " set 80-column inditcation
-
 " Plugins using vim-plug
 " NOTE: toggleterm conflicts with NeoVim < v0.7
 
@@ -90,16 +88,6 @@ let g:gitgutter_sign_modified = '╎'
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
-
-"" Magma
-nnoremap <silent><expr> <LocalLeader>r  :MagmaEvaluateOperator<CR>
-nnoremap <silent>       <LocalLeader>rr :MagmaEvaluateLine<CR>
-xnoremap <silent>       <LocalLeader>r  :<C-u>MagmaEvaluateVisual<CR>
-nnoremap <silent>       <LocalLeader>rc :MagmaReevaluateCell<CR>
-nnoremap <silent>       <LocalLeader>rd :MagmaDelete<CR>
-nnoremap <silent>       <LocalLeader>ro :MagmaShowOutput<CR>
-let g:magma_automatically_open_output = v:false
-let g:magma_image_provider = "kitty"
 
 "" Telescope
 lua << EOF
@@ -175,7 +163,7 @@ set termguicolors
 syntax on " syntax highlighting
 filetype plugin indent on
 
-" Functions
+
 
 " Keymaps
 
@@ -183,6 +171,9 @@ filetype plugin indent on
 " center cursor
 nnoremap j jzz
 nnoremap k kzz
+
+nnoremap <c-u> <c-u>zz 
+nnoremap <c-d> <c-d>zz
 
 " exit insert mode
 inoremap jk <ESC>
