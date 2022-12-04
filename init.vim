@@ -57,6 +57,8 @@ call plug#begin()
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 	Plug 'nvim-telescope/telescope-file-browser.nvim'
 
+	Plug 'psliwka/vim-smoothie'
+
 	Plug 'folke/zen-mode.nvim'
 	Plug 'folke/twilight.nvim'
 
@@ -127,6 +129,9 @@ lua << EOF
   }
 EOF
 
+"" vim-smoothie
+let g:smoothie_no_default_mappings = "True"
+
 "" vimtex
 " Viewer options: One may configure the viewer either by specifying a built-in
 " viewer method:
@@ -171,9 +176,11 @@ filetype plugin indent on
 " center cursor
 nnoremap j jzz
 nnoremap k kzz
+nnoremap <unique> <C-D> <cmd>call smoothie#do("\<C-D>") <CR>zz
+vnoremap <unique> <C-D> <cmd>call smoothie#do("\<C-D>") <CR>zz
+nnoremap <unique> <C-U> <cmd>call smoothie#do("\<C-U>") <CR>zz
+vnoremap <unique> <C-U> <cmd>call smoothie#do("\<C-U>") <CR>zz
 
-nnoremap <c-u> <c-u>zz 
-nnoremap <c-d> <c-d>zz
 
 " exit insert mode
 inoremap jk <ESC>
