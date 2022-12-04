@@ -57,8 +57,6 @@ call plug#begin()
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 	Plug 'nvim-telescope/telescope-file-browser.nvim'
 
-	Plug 'psliwka/vim-smoothie'
-
 	Plug 'folke/zen-mode.nvim'
 	Plug 'folke/twilight.nvim'
 
@@ -176,10 +174,8 @@ filetype plugin indent on
 " center cursor
 nnoremap j jzz
 nnoremap k kzz
-nnoremap <unique> <C-D> <cmd>call smoothie#do("\<C-D>") <CR>zz
-vnoremap <unique> <C-D> <cmd>call smoothie#do("\<C-D>") <CR>zz
-nnoremap <unique> <C-U> <cmd>call smoothie#do("\<C-U>") <CR>zz
-vnoremap <unique> <C-U> <cmd>call smoothie#do("\<C-U>") <CR>zz
+nnoremap <C-D> <C-D>zz
+nnoremap <C-U> <C-U>zz
 
 
 " exit insert mode
