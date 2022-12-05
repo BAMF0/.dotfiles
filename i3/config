@@ -172,9 +172,9 @@ bindsym XF86AudioPrev exec playerctl previous
 #bindsym XF86AudioPrev exec playerctl previous
 
 ## Brightness controls
-#xrandr --output eDP-1 --brightness 1.0
-#bindsym XF86MonBrightnessUp exec light -A 1 # increase screen brightness
-#bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
+#exec xrandr --output eDP --brightness 1.0
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 1 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1 # decrease screen brightness
 
 ## Take a screenshot
 bindsym Print exec /home/simjohn/.config/i3/screenShot.sh 
