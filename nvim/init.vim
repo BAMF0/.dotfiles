@@ -5,7 +5,6 @@ set guicursor=i:block " set insert cursor to block
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
 
 set autoindent " indent nl the same amount as the line typed
 set smartindent " do smart autoindenting when starting a new line
@@ -60,11 +59,14 @@ call plug#begin()
 	Plug 'folke/zen-mode.nvim'
 	Plug 'folke/twilight.nvim'
 
+	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
 	Plug 'jupyter-vim/jupyter-vim'
 
 call plug#end()
 
 " Plugin settings
+let g:mkdp_auto_start = 1
 
 "" airline
 let g:airline#extensions#tabline#enabled = 1
@@ -235,6 +237,11 @@ nmap <leader>cl  <Plug>(coc-codelens-action)
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+
+"" MarkdownPreview
+nmap <C-s> <Plug>MarkdownPreview
+nmap <M-s> <Plug>MarkdownPreviewStop
+nmap <C-p> <Plug>MarkdownPreviewToggle
 
 "" jupyter-vim
 if &ft=='py'
