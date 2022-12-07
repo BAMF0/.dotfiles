@@ -31,8 +31,8 @@ call plug#begin()
 	Plug 'preservim/tagbar'
 	Plug 'morhetz/gruvbox'
 	Plug 'sainnhe/gruvbox-material'
+	" If you are using Vim-Plug
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-	Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'cespare/vim-toml', { 'branch': 'main' }
 
@@ -160,7 +160,6 @@ lua << EOF
 EOF
 
 " Theme
-autocmd BufEnter *.tex set background=light
 colorscheme catppuccin-mocha
 set termguicolors
 " hi Normal guibg=NONE ctermbg=NONE
