@@ -33,7 +33,7 @@ exec --no-startup-id picom --experimental-backends --config /home/simjohn/.confi
 # Notification Manager (dunst)
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 # Status Bar (polybar)
-exec_always --no-startup-id polybar -c .config/polybar/config.ini myconf &
+exec_always --no-startup-id polybar -c ~/.config/polybar/config.ini myconf &
 # Launcher (ulauncher)
 exec --no-startup-id ulauncher &
 
