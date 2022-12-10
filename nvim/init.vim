@@ -163,7 +163,7 @@ EOF
 autocmd BufEnter *.tex set background=light
 colorscheme catppuccin-mocha
 set termguicolors
-" hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 syntax on " syntax highlighting
 filetype plugin indent on
