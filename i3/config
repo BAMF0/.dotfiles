@@ -52,7 +52,7 @@ bindsym $mod+n exec --no-startup-id flash_window
 # [[ QUICK SHORTCUTS ]]
 bindsym $mod+Enter exec kitty
 bindsym $mod+Shift+Enter exec firefox 
-bindsym $mod+Shift+n exec thunar 
+bindsym $mod+Shift+n exec nautilus
 
 # change focus
 bindsym $mod+h focus left
