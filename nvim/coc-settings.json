@@ -4,7 +4,7 @@
     "latex"
   ],
   "snippets.textmateSnippetsRoots": [
-	  "/home/simjohn/Documents/dev/snippets/textmate"
+	  "/home/simjohn/dev/snippets/textmate"
   ],
   "coc.preferences.formatOnSaveFiletypes": ["rust"],
   "python.venvPath": ["/home/simjohn/dev/python/venvs"]

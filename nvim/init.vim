@@ -161,6 +161,7 @@ EOF
 
 " Theme
 colorscheme catppuccin-mocha
+set background=dark
 set termguicolors
 " hi Normal guibg=NONE ctermbg=NONE
 
@@ -190,6 +191,12 @@ nnoremap <ESC> :q<CR>
 nnoremap <leader>s :w<CR>
 " Unload current buffer 
 nnoremap <Leader>q :bd<CR>
+
+" move between buffers
+nnoremap <C-l> <C-W>l 
+nnoremap <C-h> <C-W>h 
+nnoremap <C-j> <C-W>j 
+nnoremap <C-k> <C-W>k 
 
 "" coc
 " Use tab for trigger completion with characters ahead and navigate.
