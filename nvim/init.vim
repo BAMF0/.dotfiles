@@ -163,7 +163,7 @@ EOF
 colorscheme catppuccin-mocha
 set background=dark
 set termguicolors
-" hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 syntax on " syntax highlighting
 filetype plugin indent on
