@@ -36,6 +36,11 @@ exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec_always --no-startup-id polybar -c ~/.config/polybar/config.ini myconf &
 # Launcher (ulauncher)
 exec --no-startup-id ulauncher &
+# Night Light (redshift)
+exec dex -a -s ~/.config/autostart -e i3
+exec_always --no-startup-id redshift &
+# Screen saver (Xorg)
+exec_always --no-startup-id xautolock -time 5 -locker i3lock &
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -182,7 +187,11 @@ bindsym Print exec /home/simjohn/.config/i3/screenShot.sh
 # [[ CUSTOMIZATION ]]
 
 # Gaps size
-for_window [class="^.*"] border none
+for_window [class=".*"] border pixel 0
+gaps inner 5 
+smart_borders on
+smart_borders no_gaps
+border_radius 4
 
 #opacity-rule = [
 #  "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
