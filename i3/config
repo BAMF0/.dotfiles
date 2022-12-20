@@ -195,7 +195,7 @@ bindsym Print exec /home/simjohn/.config/i3/screenShot.sh
 
 # Gaps size
 for_window [class=".*"] border pixel 0
-gaps inner 5 
+gaps inner 3
 smart_borders on
 smart_borders no_gaps
 border_radius 4
