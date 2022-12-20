@@ -198,7 +198,7 @@ for_window [class=".*"] border pixel 0
 gaps inner 3
 smart_borders on
 smart_borders no_gaps
-border_radius 4
+# border_radius 2
 
 #opacity-rule = [
 #  "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
