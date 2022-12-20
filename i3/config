@@ -30,8 +30,6 @@ exec --no-startup-id nm-applet &
 exec --no-startup-id blueman-applet &
 # Compositor (picom)
 exec --no-startup-id picom --experimental-backends --config /home/simjohn/.config/picom/picom.conf -b
-# Notification Manager (dunst)
-exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 # Status Bar (polybar)
 exec_always --no-startup-id polybar -c ~/.config/polybar/config.ini myconf &
 # Launcher (ulauncher)
