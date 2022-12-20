@@ -17,7 +17,7 @@ map p print
 
 
 # Recolor book content's color
-# set recolor-keephue             true      # keep original color
+set recolor-keephue             true      # keep original color
 set recolor 						  "true"
 
 set window-title-home-tilde true
@@ -25,4 +25,4 @@ set statusbar-basename true
 set selection-clipboard clipboard
 
 # Colorscheme
-include catppuccin-mocha
+include rose-pine
