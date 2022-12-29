@@ -25,4 +25,4 @@ set statusbar-basename true
 set selection-clipboard clipboard
 
 # Colorscheme
-include rose-pine
+include zathura-nord
