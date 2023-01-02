@@ -482,9 +482,9 @@ for_window [class="urxvt"] border pixel 1
 ######################################
 
 # Define colors variables:
-set $darkbluetrans	#08052be6
-set $darkblue		#08052b
-set $lightblue		#5294e2
+set $darkbluetrans	#3b4252e6
+set $darkblue		#3b4252
+set $lightblue		#81a1c1
 set $urgentred		#e53935
 set $white		#ffffff
 set $black		#000000
