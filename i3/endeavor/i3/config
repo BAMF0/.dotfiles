@@ -27,6 +27,9 @@ font pango: Noto Sans Regular 10
 # set the mod key to the winkey:
 set $mod Mod4
 
+# set keyboard layout
+exec_always --no-startup-id setxkbmap -model pc105 -layout us,se -variant dvorak,dvorak -option grp:caps_toggle
+
 #####################
 # workspace layout: #
 #####################
