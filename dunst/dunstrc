@@ -20,13 +20,26 @@
     follow = none
 
     ### Geometry ###
-    geometry = "300x5-30+20"
+
+    # dynamic width from 0 to 300
+    # width = (0, 300)
+    # constant width of 300
+    width = 300
+
+    # The maximum height of a single notification, excluding the frame.
+    height = 300
+
+    # Position the notification in the top right corner
+    origin = bottom-right
+
+    # Offset from the origin
+    offset = 30x40
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
 
     # Maximum number of notification (0 means no limit)
-    notification_limit = 0
+    notification_limit = 5
 
     ### Progress bar ###
 
@@ -55,7 +68,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 50
+    transparency = 16
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -73,10 +86,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "#aaaaaa"
+    frame_color = "e5e9f0"
 
     # Define a color for the separator.
     # possible values are:
@@ -94,11 +107,11 @@
     # Set to 0 to disable.
     # A client can set the 'transient' hint to bypass this. See the rules
     # section for how to disable this if necessary
-    # idle_threshold = 120
+    idle_threshold = 0
 
     ### Text ###
 
-    font = Monospace 8
+    font = Noto Sans Regular 9
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -164,14 +177,14 @@
     stack_duplicates = true
 
     # Hide the count of stacked notifications with the same content
-    hide_duplicate_count = false
+    hide_duplicate_count = true
 
     # Display indicators for URLs (U) and actions (A).
     show_indicators = yes
 
     ### Icons ###
 
-    # Align icons left/right/top/off
+    # Align icons left/right/off
     icon_position = left
 
     # Scale small icons up to this size, set to 0 to disable. Helpful
@@ -183,16 +196,17 @@
     max_icon_size = 32
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    #icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /usr/share/icons/Qogir/16/status:/usr/share/icons/Qogir/16/devices/:/usr/share/icons/Qogir/16/apps/:/usr/share/pixmaps/
 
     ### History ###
 
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
-    sticky_history = yes
+    sticky_history = false
 
     # Maximum amount of notifications kept in history
-    history_length = 20
+    history_length = 0
 
     ### Misc/Advanced ###
 
@@ -216,7 +230,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 0
+    corner_radius = 7
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -279,26 +293,26 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#6e6a86"
-    foreground = "#888888"
-    timeout = 10
+    background = "#3b4252"
+    foreground = "#ffffff"
+    timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
-    #default_icon = /path/to/icon
+    icon = /usr/share/icons/Arc-X-D/status/16/dialog-information.png
 
 [urgency_normal]
-    background = "#1f1d2e"
+    background = "#3b4252"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 5
     # Icon for notifications with normal urgency, uncomment to enable
-    #default_icon = /path/to/icon
+    icon = /usr/share/icons/Arc-X-D/status/16/dialog-question.png
 
 [urgency_critical]
-    background = "#900000"
+    background = "#3b4252"
     foreground = "#ffffff"
-    frame_color = "#ff0000"
-    timeout = 0
+    frame_color = "#ff7f7f"
+    timeout = 120
     # Icon for notifications with critical urgency, uncomment to enable
-    #default_icon = /path/to/icon
+    icon = /usr/share/icons/Arc-X-D/status/16/dialog-warning.png
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
@@ -326,14 +340,12 @@
 #    set_category
 #    timeout
 #    urgency
-#    icon_position
 #    skip_display
 #    history_ignore
 #    action_name
 #    word_wrap
 #    ellipsize
 #    alignment
-#    hide_text
 #
 # Shell-like globbing will get expanded.
 #
@@ -418,9 +430,8 @@
 #    summary = *twitter.com*
 #    urgency = normal
 #
-#[stack-volumes]
-#    appname = "some_volume_notifiers"
-#    set_stack_tag = "volume"
+[stack-volumes]
+    appname = "some_volume_notifiers"
+    set_stack_tag = "volume"
 #
 # vim: ft=cfg
-#
