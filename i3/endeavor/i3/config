@@ -485,24 +485,26 @@ for_window [class="urxvt"] border pixel 1
 ######################################
 
 # Define colors variables:
-set $darkbluetrans	#3b4252e6
-set $darkblue		#3b4252
-set $lightblue		#81a1c1
+set $darkbluetrans	#243146e6
+set $darkblue		#243146
+set $lightblue		#9AACCE
+set $cyan           #86A3A3
 set $urgentred		#e53935
-set $white		#ffffff
-set $black		#000000
-set $purple		#e345ff
-set $darkgrey		#383c4a
-set $grey		#b0b5bd
-set $mediumgrey		#8b8b8b
-set $yellowbrown	#e1b700
+set $white		    #ffffff
+set $black		    #000000
+set $purple		    #B380B0
+set $darkgrey		#2A2520
+set $grey		    #4D453E
+set $mediumgrey		#ECE1D7
+set $yellowbrown	#8E733F
+
 
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
-client.focused		    	$lightblue	$darkblue	$white		$mediumgrey	$mediumgrey
-client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
-client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
-client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
+client.focused		    $lightblue	$darkblue	$white		$mediumgrey	$cyan
+client.unfocused	   	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
+client.focused_inactive	$darkblue	$darkblue	$grey		$black		$black
+client.urgent		    $urgentred	$urgentred	$white		$yellowbrown $yellowbrown
 
 ############################################
 # bar settings (input comes from i3blocks) #
@@ -530,8 +532,8 @@ strip_workspace_numbers yes
 		    separator          $purple
 		    background         $darkgrey
 		    statusline         $white
-#                          		border 		        bg		txt		indicator
-		focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
+#                          	border 		        bg		    txt		    indicator
+		focused_workspace	$mediumgrey	   	    $grey		$cyan	    $purple
 		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
 		inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
 		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
