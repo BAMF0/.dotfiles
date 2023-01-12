@@ -16,12 +16,11 @@ return require('packer').startup(function(use)
     use({
         'rose-pine/neovim',
         as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
     })
 
     use 'rmehri01/onenord.nvim'
+    use 'folke/tokyonight.nvim'
+    use "savq/melange"
 
     use('mhinz/vim-startify')
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
