@@ -13,21 +13,25 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
+    -- Themes
     use({
         'rose-pine/neovim',
         as = 'rose-pine',
     })
+    use "EdenEast/nightfox.nvim"
+    use "cocopon/iceberg.vim"
 
-    use 'rmehri01/onenord.nvim'
-    use 'folke/tokyonight.nvim'
-    use "savq/melange"
 
+    -- General
     use('mhinz/vim-startify')
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use('HiPhish/nvim-ts-rainbow2')
     use('nvim-treesitter/playground')
     use('theprimeagen/harpoon')
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
+    use('tpope/vim-repeat')
+    use 'ggandor/lightspeed.nvim'
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -53,15 +57,10 @@ return require('packer').startup(function(use)
 
     use('lervag/vimtex')
 
-    use { "akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup()
-    end }
-
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-    -- using packer.nvim
     use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
 
 end)
