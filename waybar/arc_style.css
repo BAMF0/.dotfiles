@@ -11,10 +11,10 @@
  * -------------------------------------------------------------------------- */
 
 /*
-Altered Arc-Dark Color Scheme
+Arc-Dark Color Scheme
 */
 @define-color highlight #5294e2 ;
-@define-color base1  #1A1A1A ;
+@define-color base1  #404552 ;
 
 @keyframes blink-warning {
     70% {
@@ -57,7 +57,6 @@ Altered Arc-Dark Color Scheme
     color: #bebebe;
     background-color: @base1;
     font-family: UbuntuMono;
-    font-weight: bold;
     font-size: 14px;
 }
 

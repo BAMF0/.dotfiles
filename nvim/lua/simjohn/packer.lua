@@ -14,12 +14,14 @@ return require('packer').startup(function(use)
     }
 
     -- Themes
-    use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-    })
     use "EdenEast/nightfox.nvim"
     use "cocopon/iceberg.vim"
+
+    use(
+        'NTBBloodbath/doom-one.nvim'
+    )
+
+     use "xiyaowong/nvim-transparent"
 
 
     -- General
