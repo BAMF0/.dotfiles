@@ -21,7 +21,9 @@ return require('packer').startup(function(use)
         'NTBBloodbath/doom-one.nvim'
     )
 
-     use "xiyaowong/nvim-transparent"
+    use "rebelot/kanagawa.nvim"
+
+    use "xiyaowong/nvim-transparent"
 
 
     -- General
@@ -64,5 +66,7 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
+
+    use 'andweeb/presence.nvim'
 
 end)

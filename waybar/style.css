@@ -14,7 +14,7 @@
 Altered Arc-Dark Color Scheme
 */
 @define-color highlight #5294e2 ;
-@define-color base1  #1A1A1A ;
+@define-color base1  #c2d8ee;
 
 @keyframes blink-warning {
     70% {
@@ -49,16 +49,17 @@ Altered Arc-Dark Color Scheme
     min-height: 0;
     margin: 0px;
     padding: 0;
+    font-family: LigaSFMonoNerdFont;
 }
 
 /* The whole bar */
 #waybar {
     background: transparent;
-    color: #bebebe;
+    color: black;
     background-color: @base1;
-    font-family: UbuntuMono;
+
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 /* Every modules */
@@ -170,6 +171,7 @@ Altered Arc-Dark Color Scheme
     border-bottom: 3px solid transparent;
     margin-bottom: 0px;
     padding:0px;
+    color: black;
 }
 
 #workspaces button.focused {
