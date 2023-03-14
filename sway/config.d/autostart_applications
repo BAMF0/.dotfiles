@@ -5,7 +5,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec mako
 
 # Network Applet
-exec nm-applet --indicator
+exec nm-applet 
 
 # GTK3 applications take a long time to start
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK

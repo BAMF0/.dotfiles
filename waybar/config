@@ -23,12 +23,13 @@
         "battery",
         "network",
         "pulseaudio",
-        "custom/keyboard-layout",
+        //"custom/keyboard-layout",
         //"custom/PBPbattery",
+        "sway/language",
         "backlight#icon",
         "backlight#value",
         "clock",
-        //"tray",
+        "tray",
         //"custom/weather",
         "custom/power",
     ],
@@ -120,6 +121,10 @@
     "sway/mode": {
         "format": "{}",
         "tooltip": false
+    },
+
+    "sway/language": {
+        "format": " {short} ",
     },
 
     "sway/window": {
