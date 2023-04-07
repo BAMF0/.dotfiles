@@ -13,8 +13,9 @@
 /*
 Altered Arc-Dark Color Scheme
 */
-@define-color highlight #5294e2 ;
-@define-color base1 rgb(28,28,30);
+@define-color highlight #7E9CD8;
+@define-color base1 #1F1F28;
+@define-color fujiWhite #DCD7BA;
 
 @keyframes blink-warning {
     70% {
@@ -55,7 +56,7 @@ Altered Arc-Dark Color Scheme
 /* The whole bar */
 #waybar {
     background: transparent;
-    color: white;
+    color: @fujiWhite;
     background-color: @base1;
 
     font-weight: bold;
@@ -171,13 +172,14 @@ Altered Arc-Dark Color Scheme
     border-bottom: 3px solid transparent;
     margin-bottom: 0px;
     padding:0px;
-    color: white;
+    color: @fujiWhite;
 }
 
 #workspaces button.focused {
     border-bottom: 3px solid  @highlight;
     margin-bottom: 2px;
     padding-left:0;
+    font-style: italic;
 }
 
 #workspaces button.urgent {
@@ -195,6 +197,7 @@ Altered Arc-Dark Color Scheme
     font-size:15px;
     margin-left:15px;
     margin-right:10px;
+    color: #957FB8;
 }
 
 #backlight.icon {

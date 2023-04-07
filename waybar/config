@@ -10,7 +10,8 @@
         //"custom/weather",
         "custom/launcher",
         "sway/workspaces",
-        "sway/mode",
+        "sway/mode"
+        //"sway/window",
     ],
  
     "modules-center": [
@@ -128,7 +129,7 @@
     },
 
     "sway/window": {
-        "format": "{}",
+        "format": " [{}] ",
         "max-length": 120
     },
 
@@ -143,7 +144,13 @@
             "2": "",
             "3": "",
             "4": "",
-        }
+        },
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+        },
     },
 
     "pulseaudio": {
