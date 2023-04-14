@@ -14,14 +14,15 @@ return require('packer').startup(function(use)
     }
 
     -- Themes
-    use "EdenEast/nightfox.nvim"
-    use "cocopon/iceberg.vim"
-
-    use(
-        'NTBBloodbath/doom-one.nvim'
-    )
-
     use "rebelot/kanagawa.nvim"
+    use { "catppuccin/nvim", as = "catppuccin" }
+    use {
+    "mcchrish/zenbones.nvim",
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    requires = "rktjmp/lush.nvim"
+    }
 
     use "xiyaowong/nvim-transparent"
 

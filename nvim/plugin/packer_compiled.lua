@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/simjohn/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  catppuccin = {
+    loaded = true,
+    path = "/home/simjohn/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/simjohn/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -109,11 +114,6 @@ _G.packer_plugins = {
     path = "/home/simjohn/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["doom-one.nvim"] = {
-    loaded = true,
-    path = "/home/simjohn/.local/share/nvim/site/pack/packer/start/doom-one.nvim",
-    url = "https://github.com/NTBBloodbath/doom-one.nvim"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/simjohn/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -123,11 +123,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/simjohn/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
-  },
-  ["iceberg.vim"] = {
-    loaded = true,
-    path = "/home/simjohn/.local/share/nvim/site/pack/packer/start/iceberg.vim",
-    url = "https://github.com/cocopon/iceberg.vim"
   },
   ["kanagawa.nvim"] = {
     loaded = true,
@@ -149,6 +144,11 @@ _G.packer_plugins = {
     path = "/home/simjohn/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["lush.nvim"] = {
+    loaded = true,
+    path = "/home/simjohn/.local/share/nvim/site/pack/packer/start/lush.nvim",
+    url = "https://github.com/rktjmp/lush.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/simjohn/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -158,11 +158,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/simjohn/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["nightfox.nvim"] = {
-    loaded = true,
-    path = "/home/simjohn/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
-    url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -244,6 +239,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/simjohn/.local/share/nvim/site/pack/packer/start/vimtex",
     url = "https://github.com/lervag/vimtex"
+  },
+  ["zenbones.nvim"] = {
+    loaded = true,
+    path = "/home/simjohn/.local/share/nvim/site/pack/packer/start/zenbones.nvim",
+    url = "https://github.com/mcchrish/zenbones.nvim"
   }
 }
 
