@@ -15,6 +15,7 @@
     ],
  
     "modules-center": [
+        "clock",
     ],
 
     "modules-right": [
@@ -29,7 +30,6 @@
         "sway/language",
         "backlight#icon",
         "backlight#value",
-        "clock",
         "tray",
         //"custom/weather",
         "custom/power",

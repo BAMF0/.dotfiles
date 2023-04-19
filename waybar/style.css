@@ -14,8 +14,8 @@
 Altered Arc-Dark Color Scheme
 */
 @define-color highlight #7E9CD8;
-@define-color base1 #1F1F28;
-@define-color fujiWhite #DCD7BA;
+@define-color base1 #1C1917;
+@define-color foreground1 #B4BDC3;
 
 @keyframes blink-warning {
     70% {
@@ -56,7 +56,7 @@ Altered Arc-Dark Color Scheme
 /* The whole bar */
 #waybar {
     background: transparent;
-    color: @fujiWhite;
+    color: @foreground1;
     background-color: @base1;
 
     font-weight: bold;
@@ -172,7 +172,7 @@ Altered Arc-Dark Color Scheme
     border-bottom: 3px solid transparent;
     margin-bottom: 0px;
     padding:0px;
-    color: @fujiWhite;
+    color: @foreground1;
 }
 
 #workspaces button.focused {
