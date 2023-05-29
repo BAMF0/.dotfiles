@@ -8,7 +8,7 @@
 
     "modules-left": [
         //"custom/weather",
-        "custom/launcher",
+        //"custom/launcher",
         "sway/workspaces",
         "sway/mode"
         //"sway/window",
@@ -23,16 +23,16 @@
         //"memory",
         //"cpu",
         "battery",
-        "network",
+        //"network",
         "pulseaudio",
         //"custom/keyboard-layout",
         //"custom/PBPbattery",
         "sway/language",
         "backlight#icon",
         "backlight#value",
-        "tray",
         //"custom/weather",
-        "custom/power",
+        //"custom/power",
+        "tray",
     ],
 
     // Modules
@@ -69,6 +69,7 @@
         "interval": 10,
         //"format-alt": " {:%e %b %Y}", // Icon: calendar-alt
         "format": "{:%a %e %H:%M}",
+        "locale": "en_US.UTF-8",
         "tooltip-format": "{:%e %B %Y}"
     },
 
@@ -143,7 +144,9 @@
             "1": "",
             "2": "",
             "3": "",
-            "4": "",
+            "4": "",
+            "5": "",
+            "10": "",
         },
         "persistent_workspaces": {
             "1": [],
