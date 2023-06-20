@@ -216,6 +216,7 @@ bindsym $mod+r mode "resize"
 #
     bindsym $mod+n exec thunar
     bindsym $mod+o exec firefox
+    bindsym $mod+c exec blueman-manager 
 #
 # Screenshots
 #
