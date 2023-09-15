@@ -214,9 +214,10 @@ bindsym $mod+r mode "resize"
 #
 # App shortcuts
 #
-    bindsym $mod+n exec thunar
+    bindsym $mod+t exec thunar
     bindsym $mod+o exec firefox
     bindsym $mod+c exec blueman-manager 
+    bindsym $mod+n exec nm-connection-editor 
 #
 # Screenshots
 #
@@ -225,4 +226,4 @@ bindsym $mod+r mode "resize"
 #
 # Keybindings List
 #
-    bindsym $mod+t exec xed ~/.config/sway/cheatsheet
+    #bindsym $mod+t exec xed ~/.config/sway/cheatsheet
